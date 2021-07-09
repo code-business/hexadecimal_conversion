@@ -26,7 +26,7 @@ const getParsedHexValue = (hexString, dataType) => {
     case "SINT":
     case "DINT":
       // removing preceding 0s
-      return parseIntCustomHex(hexString.substring(2).replace(/^0+/, ''));
+      return parseIntCustomHex(hexString.substring(2));
     case "WORD":
     case "DWORD":
     case "UINT":
