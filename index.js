@@ -22,10 +22,11 @@ const getParsedHexValue = (hexString, dataType) => {
       const year = parseIntCustom(hexString.slice(2, 6)).toString();
       //convert date in epoch
       return new Date(`${month}-${day}-${year}`).getTime() || 0;
-    case "INT":
     case "SINT":
-    case "DINT":
       // removing preceding 0s
+      return parseIntCustomHex(hexString.substring(2).replace(/^0+/, ""));
+    case "INT":
+    case "DINT":
       return parseIntCustomHex(hexString.substring(2));
     case "WORD":
     case "DWORD":
@@ -46,7 +47,7 @@ const parseIntCustom = (hexString) => {
 };
 
 const parseIntCustomHex = (hexString) => {
-  hexString = `0x${hexString === '' ? 0 : hexString}`
+  hexString = `0x${hexString === "" ? 0 : hexString}`;
   //if hex string is positive, convert it directly to integer
   if (parseInt(hexString.charAt(2), 16) < 8) {
     return parseInt(hexString, 16);
@@ -77,7 +78,7 @@ const hex2float = (num) => {
 };
 
 const hex2double = (num) => {
-  num = `0x${num === '' ? 0 : num}`
+  num = `0x${num === "" ? 0 : num}`;
   let sign = parseInt(num.charAt(2), 16) < 8 ? 1 : -1;
   let binary = hexToBinary(num.substring(2));
   let exponent = parseInt(binary.substring(1, 12), 2) - 1023;
@@ -98,5 +99,3 @@ module.exports = {
 };
 
 // console.log(getParsedHexValue("0xfcb9ffffcd64c1cd", "LREAL"));
-
-
