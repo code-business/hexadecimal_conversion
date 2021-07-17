@@ -16,7 +16,6 @@ const getParsedHexValue = (hexString, dataType) => {
     case "FLOAT":
       return hex2float(hexString).toFixed(2);
     case "DATE":
-      hexString = hexString.substring(2);
       const month = parseIntCustom(hexString.slice(6, 8)).toString();
       const day = parseIntCustom(hexString.slice(8, 10)).toString();
       const year = parseIntCustom(hexString.slice(2, 6)).toString();
