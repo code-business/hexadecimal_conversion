@@ -6,6 +6,7 @@ const hexToBinary = require("hex-to-binary");
  * @param {string} dataType - data type to which the hexadecimal string has to be converted
  * @returns {*} converted value
  */
+
 const getParsedHexValue = (hexString, dataType) => {
   //switch case based on the data type
   switch (dataType.toUpperCase()) {
@@ -90,6 +91,7 @@ const hex2double = (num) => {
   }
   return sign * mantissa * Math.pow(2, exponent);
 };
+
 /**
  * @module hexadecimal_conversion
  */
