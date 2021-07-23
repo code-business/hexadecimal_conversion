@@ -45,3 +45,7 @@ A package for conversion of hexadecimal string to the specified data type.
    **Output**
 
    248.01
+
+
+# command to deploy package
+ selec-lambda-services
